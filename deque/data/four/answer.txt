@@ -1,0 +1,24 @@
+Deque CheckTool Package Version 1.5 Offical Version
+
+---------------------------------------------------------------------------
+Test Zone B: Operation speed individually Testing...
+Test Size: 21000 Element(s)
+Test 1: push_back                                                  PASSED
+Test 2: pop_back                                                   PASSED
+Test 3: push_front                                                 PASSED
+Test 4: pop_front                                                  PASSED
+Test 5: front                                                      PASSED
+Test 6: back                                                       PASSED
+Test 7: begin                                                      PASSED
+Test 8: end                                                        PASSED
+Test 9: at                                                         PASSED
+Test 10: []                                                         PASSED
+Test 11: iterator ++                                                PASSED
+Test 12: iterator --                                                PASSED
+Test 13: iterator +n                                                PASSED
+Test 14: iterator -n                                                PASSED
+Test 15: insert                                                     PASSED
+Test 16: erase                                                      PASSED
+Test 17: Copy Constructor                                           PASSED
+Test 18: Equal Operator                                             PASSED
+---------------------------------------------------------------------------

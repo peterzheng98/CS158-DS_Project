@@ -1,0 +1,9 @@
+Test 1 : Test for classes without default constructor...Correct.
+Test 2 : Test for Matrix, a class with dynamic members...Correct.
+Test 3 : Test for big integer...Correct.
+Test 4 : Test for copy constructor and operator=...Correct.
+Test 5 : Test for accessing the container in the order of the sequence, using iterator...Correct.
+Test 6 : Test for accessing the container randomly, using iterator...Correct.
+Test 7 : Test for random erase and insert...Correct.
+Test 8 : Test for pop() and push()...Correct.
+Congratulations. Your submission has passed all correctness tests. Use valgrind to ensure that there ain't any memory leaks in your deque. Good job! :)
