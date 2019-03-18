@@ -25,7 +25,7 @@
 > ## 评测及提交方式
 >评测采用OJ在线评测的方式，请在OJ上用学号的方式注册账号(同onlinejudge)，之后再problem中找到相应题目，然后提交`BTree.hpp(deque.hpp)`中的内容进行测试。  
 >
->OJ地址：咕咕咕
+>OJ地址：http://oj.peterzheng.cn
 >
 >
 
