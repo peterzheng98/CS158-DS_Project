@@ -19,6 +19,9 @@ class BTree {
    private:
     // Your private members go here
    public:
+    bool modify(const Key& key){
+    
+    }
     iterator() {
       // TODO Default Constructor
     }
@@ -107,25 +110,6 @@ class BTree {
     // TODO erase function
     return Fail;  // If you can't finish erase part, just remaining here.
   }
-  // Overloaded of []
-  // Access Specified Element
-  // return a reference to the first value that is mapped to a key equivalent to
-  // key. Perform an insertion if such key does not exist.
-  Value& operator[](const Key& key) {}
-  // Overloaded of const []
-  // Access Specified Element
-  // return a reference to the first value that is mapped to a key equivalent to
-  // key. Throw an exception if the key does not exist.
-  const Value& operator[](const Key& key) const {}
-  // Access Specified Element
-  // return a reference to the first value that is mapped to a key equivalent to
-  // key. Throw an exception if the key does not exist
-  Value& at(const Key& key) {}
-  // Overloaded of const []
-  // Access Specified Element
-  // return a reference to the first value that is mapped to a key equivalent to
-  // key. Throw an exception if the key does not exist.
-  const Value& at(const Key& key) const {}
   // Return a iterator to the beginning
   iterator begin() {}
   const_iterator cbegin() const {}
