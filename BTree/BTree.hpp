@@ -19,7 +19,7 @@ class BTree {
    private:
     // Your private members go here
    public:
-    bool modify(const Key& key){
+    bool modify(const Value& value){
     
     }
     iterator() {
@@ -43,9 +43,6 @@ class BTree {
     }
     // Overloaded of operator '==' and '!='
     // Check whether the iterators are same
-    value_type& operator*() const {
-      // Todo operator*, return the <K,V> of iterator
-    }
     bool operator==(const iterator& rhs) const {
       // Todo operator ==
     }
@@ -57,14 +54,6 @@ class BTree {
     }
     bool operator!=(const const_iterator& rhs) const {
       // Todo operator !=
-    }
-    value_type* operator->() const noexcept {
-      /**
-       * for the support of it->first.
-       * See
-       * <http://kelvinh.github.io/blog/2013/11/20/overloading-of-member-access-operator-dash-greater-than-symbol-in-cpp/>
-       * for help.
-       */
     }
   };
   class const_iterator {
