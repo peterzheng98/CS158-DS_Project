@@ -111,6 +111,8 @@ class BTree {
   size_t size() const {}
   // Clear the BTree
   void clear() {}
+  // Return the value refer to the Key(key)
+  Value at(const Key& key){}
   /**
    * Returns the number of elements with key
    *   that compares equivalent to the specified argument,
