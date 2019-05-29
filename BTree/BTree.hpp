@@ -12,11 +12,9 @@ namespace sjtu {
     class BTree {
     private:
         // Your private members go here
-        std::map<Key, Value, Compare> _core;
     public:
         typedef pair<const Key, Value> value_type;
         
-        const std::map<Key, Value, Compare> &getCore() const;
         
         class const_iterator;
         class iterator {
@@ -94,9 +92,7 @@ namespace sjtu {
         // Return a pair, the first of the pair is the iterator point to the new
         // element, the second of the pair is Success if it is successfully inserted
         pair<iterator, OperationResult> insert(const Key& key, const Value& value) {
-            pair<std::map<Key, Value>::iterator, bool> result = _core.insert(std::pair<Key, Value>(key, value));
-            if(result.second == false) return pair<iterator, OperationResult>(iterator(), Fail);
-            else return pair<iterator, OperationResult>(iterator(), Success);
+           
         }
         // Erase: Erase the Key-Value
         // Return Success if it is successfully erased
@@ -119,7 +115,6 @@ namespace sjtu {
         void clear() {}
         // Return the value refer to the Key(key)
         Value at(const Key& key){
-            return _core[key];
         }
         /**
          * Returns the number of elements with key
@@ -137,10 +132,5 @@ namespace sjtu {
         iterator find(const Key& key) {}
         const_iterator find(const Key& key) const {}
     };
-    
-    template<class Key, class Value, class Compare>
-    const std::map<Key, Value, Compare> &BTree<Key, Value, Compare>::getCore() const {
-        return _core;
-    }
 }  // namespace sjtu
 
