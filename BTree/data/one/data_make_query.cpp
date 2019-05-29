@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>  
 #include <string>
-const long long maxn = 6 * 1e6;
+const long long maxn = 6 * 1e7;
 int flag[maxn] = {0};
 int key;
 const bool random_type = 1;
@@ -19,7 +19,7 @@ int rand(){
 
 
 int main(){
-  ofstream OpenFile("insert.data");
+  ofstream OpenFile("query.data");
 　 if(OpenFile.fail()){  
     cout<<"Error while opening files."<<endl;
       exit(2);
@@ -33,7 +33,7 @@ int main(){
       int value = rand();
       //if(rand() % 2) OpenFile << 'q' << ' ' << key << '\n';
       //else OpenFile << 'e' << ' ' << key << '\n';
-      OpenFile << 'i' << ' ' << key << ' ' << value << '\n';
+      OpenFile << 'q' << ' ' << key  << '\n';
     }
   }
   OpenFile.close();  

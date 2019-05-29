@@ -269,7 +269,7 @@ int main(int argc, char *argv[]) {
     //    return 0;
     //  }
     // }
-    cout << "[Accepted] Small Data Test" << endl;
+    cout << "PASS" << endl;
   } else {
     // this test for open and close !
 

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>  
 #include <string>
-const long long maxn = 7 * 1e9;
+const long long maxn = 6 * 1e7;
 int flag[maxn] = {0};
 int key;
 const bool random_type = 1;

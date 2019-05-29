@@ -7,12 +7,14 @@
 #include <cstddef>
 #include "exception.hpp"
 #include <map>
+#include <fstream>
 namespace sjtu {
     template <class Key, class Value, class Compare = std::less<Key> >
     class BTree {
     private:
         // Your private members go here
-        std::map<Key, Value, Compare> _core;
+        std::fstream fileIO;
+        std::map<Key, Value> _core;
     public:
         typedef pair<const Key, Value> value_type;
         
@@ -79,7 +81,22 @@ namespace sjtu {
         };
         // Default Constructor and Copy Constructor
         BTree() {
-            // Todo Default
+            std::ifstream ifs("target.txt");
+            int sizeT;
+            if(ifs){
+                ifs >> sizeT;
+//                std::cout << "[Debug IO Init] size:" << sizeT << std::endl;
+                for(int i = 0; i < sizeT; ++i){
+                    Key key;
+                    Value value;
+                    ifs >> key >> value;
+//                    std::cout << "[Debug IO Read] " << key << "->" << value;
+                    _core.insert(std::make_pair(key, value));
+                }
+                } else{
+                    std::cout << "Initial";
+                }
+            
         }
         BTree(const BTree& other) {
             // Todo Copy
@@ -88,13 +105,20 @@ namespace sjtu {
             // Todo Assignment
         }
         ~BTree() {
+            fileIO.open("target.txt", std::ios::in | std::ios::out | std::ios::trunc);
+            fileIO << _core.size() << "\n";
+            for(auto it = _core.begin(); it != _core.end(); it++) {
+                fileIO << it->first << std::endl;
+                fileIO << it->second << std::endl;
+//                std::cout << "[Debug IO Write] " << it->first << "->" << it->second << std::endl;
+
+            }
+            fileIO.close();
             // Todo Destructor
         }
-        // Insert: Insert certain Key-Value into the database
-        // Return a pair, the first of the pair is the iterator point to the new
-        // element, the second of the pair is Success if it is successfully inserted
         pair<iterator, OperationResult> insert(const Key& key, const Value& value) {
-            pair<std::map<Key, Value>::iterator, bool> result = _core.insert(std::pair<Key, Value>(key, value));
+//            std::cout << "[Insertion Debug] " << key << "->" << value << std::endl;
+            auto result = _core.insert(std::pair<Key, Value>(key, value));
             if(result.second == false) return pair<iterator, OperationResult>(iterator(), Fail);
             else return pair<iterator, OperationResult>(iterator(), Success);
         }
@@ -105,37 +129,12 @@ namespace sjtu {
             // TODO erase function
             return Fail;  // If you can't finish erase part, just remaining here.
         }
-        // Return a iterator to the beginning
-        iterator begin() {}
-        const_iterator cbegin() const {}
-        // Return a iterator to the end(the next element after the last)
-        iterator end() {}
-        const_iterator cend() const {}
-        // Check whether this BTree is empty
-        bool empty() const {}
+        bool empty() const { return _core.empty(); }
         // Return the number of <K,V> pairs
-        size_t size() const {}
-        // Clear the BTree
-        void clear() {}
-        // Return the value refer to the Key(key)
+        size_t size() const { return _core.size(); }
         Value at(const Key& key){
             return _core[key];
         }
-        /**
-         * Returns the number of elements with key
-         *   that compares equivalent to the specified argument,
-         * The default method of check the equivalence is !(a < b || b > a)
-         */
-        size_t count(const Key& key) const {}
-        /**
-         * Finds an element with key equivalent to key.
-         * key value of the element to search for.
-         * Iterator to an element with key equivalent to key.
-         *   If no such element is found, past-the-end (see end()) iterator is
-         * returned.
-         */
-        iterator find(const Key& key) {}
-        const_iterator find(const Key& key) const {}
     };
     
     template<class Key, class Value, class Compare>
@@ -143,4 +142,5 @@ namespace sjtu {
         return _core;
     }
 }  // namespace sjtu
+
 

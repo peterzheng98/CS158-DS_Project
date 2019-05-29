@@ -10,11 +10,11 @@ if returnID != 0:
     exit(-1)
 
 os.system('./insertionData > tmp && ./queryData > tmp && rm tmp')
-returnID = os.system('g++ -o hello_world BTree.cpp -O2 -std=c++14')
+returnID = os.system('g++ -o hello_world BTree.cpp -O2 -std=c++14 -g')
 if returnID != 0:
     print('Fail to make your BTree, please check whether there exists any compilication error!')
     exit(-1)
 
-os.system('g++ -o target sql_checker.cpp -O2 -std=c++14 -w')
+os.system('g++ -o target sql_checker.cpp -O2 -std=c++14 -w -l sqlite3')
 print('[Accepted] Compiling')
 os.system('./target')

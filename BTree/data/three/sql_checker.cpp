@@ -36,7 +36,7 @@ static int query_callback(void *para, int nCount, char **pValue, char **pName) {
       results.push_back(atoi(pValue[i]));
     }
   }
-  cout << s << endl;
+//  cout <<"[Query Callback]"<< s << endl;
   return 0;
 }
 
@@ -211,7 +211,7 @@ void get_result(FILE *fp) {
   while (memset(buf, 0, sizeof(buf)), fgets(buf, sizeof(buf) - 1, fp) != 0) {
     result = atoi(buf);
     BTree_results.push_back(result);
-    // cout << result << endl;
+    cout << result << endl;
   }
 }
 
@@ -220,6 +220,8 @@ void BTree_tester(string filename) {
   fp = NULL;
   string program_name = "hello_world";
   string cmd = "./" + program_name + " < " + filename;
+//    std::cout << "Command: " << cmd << std::endl;
+//    system(cmd.c_str());
   fp = popen(cmd.c_str(), "r");
   if (!fp) {
     perror("popen");
@@ -251,25 +253,24 @@ int main(int argc, char *argv[]) {
     string test_name = "query.data";
     BTree_tester(test_name);
     tester(test_name);
-
     for (int i = 0; i < results.size(); i++) {
       if (results[i] != BTree_results[i]) {
         cout << "wrong at big insert + query" << endl;
-        return 0;
+          throw 1;
       }
     }
-    // then for erase & query
-    // test_name = "erase_query.data";
-    // BTree_tester(test_name);
-    // tester(test_name);
 
-    // for (int i = 0; i < results.size(); i++) {
-    //  if (results[i] != BTree_results[i]) {
-    //    cout << "wrong at erase + query" << endl;
-    //    return 0;
-    //  }
-    // }
-    cout << "[Accepted] Small Data Test" << endl;
+  test_name = "erase.data";
+  BTree_tester(test_name);
+  tester(test_name);
+
+  for (int i = 0; i < results.size(); i++) {
+   if (results[i] != BTree_results[i]) {
+     cout << "wrong at erase + query" << endl;
+     throw 1;
+   }
+  }
+      cout << "PASS" << endl;
   } else {
     // this test for open and close !
 

@@ -3,6 +3,7 @@
 #include <string>
 #include "BTree.hpp"
   //  test: constructor
+using namespace std;
 sjtu::BTree<int, int> bTree;
 void insert(int key, int value){
   bTree.insert(key, value);
@@ -14,13 +15,12 @@ void erase(int key){
 }
 
 int query(int key){
-  bTree.at(key);
+  return bTree.at(key);
 }
 
 
 void tester(){
-  //  test: empty(), size()
-  assert(bTree.empty() && bTree.size() == 0);
+    assert(bTree.begin() == bTree.begin());
   int key, value;
   char cmd;
   while(cin >> cmd){

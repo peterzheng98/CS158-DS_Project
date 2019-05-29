@@ -1,12 +1,12 @@
 #include <cassert>
 #include <iostream>
-#include <fstream>  
+#include <fstream>
 #include <string>
-const long long maxn = 6 * 1e7;
+const long long maxn = 1e8;
 int flag[maxn] = {0};
 int key;
 const bool random_type = 1;
-int random_seed = 99962;
+int random_seed = 10280;
 using namespace std;
 inline int abs(int a){
     return a > 0 ? a : -a;
@@ -20,10 +20,10 @@ int rand(){
 
 int main(){
   ofstream OpenFile("insert.data");
-　 if(OpenFile.fail()){  
+　 if(OpenFile.fail()){
     cout<<"Error while opening files."<<endl;
       exit(2);
-    }  
+    }
   for(long long i = 0; i < maxn; i++){
     key = (random_type) ? rand() % maxn : i;
     if(flag[key]) ;
@@ -36,5 +36,5 @@ int main(){
       OpenFile << 'i' << ' ' << key << ' ' << value << '\n';
     }
   }
-  OpenFile.close();  
+  OpenFile.close();
 }
