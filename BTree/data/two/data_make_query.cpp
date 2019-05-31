@@ -20,7 +20,7 @@ int rand(){
 
 int main(){
   ofstream OpenFile("query.data");
-　 if(OpenFile.fail()){
+  if(OpenFile.fail()){
     cout<<"Error while opening files."<<endl;
       exit(2);
     }

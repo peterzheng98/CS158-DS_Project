@@ -21,7 +21,7 @@ int rand(){
 
 int main(){
     ofstream OpenFile("erase.data");
-    　 if(OpenFile.fail()){
+    if(OpenFile.fail()){
         cout<<"Error while opening files."<<endl;
         exit(2);
     }
