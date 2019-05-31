@@ -20,7 +20,7 @@ int query(int key){
 
 
 void tester(){
-    assert(bTree.begin() == bTree.begin());
+  //assert(bTree.begin() == bTree.begin());
   int key, value;
   char cmd;
   while(cin >> cmd){
